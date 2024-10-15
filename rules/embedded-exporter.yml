@@ -87,7 +87,7 @@ groups:
 
       - alert: PrometheusAlertmanagerE2eDeadManSwitch
         expr: 'vector(1)'
-        for: 5m
+        for: 12h
         labels:
           severity: critical
         annotations:
