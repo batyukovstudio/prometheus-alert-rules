@@ -87,12 +87,13 @@ groups:
 
       - alert: PrometheusAlertmanagerE2eDeadManSwitch
         expr: 'vector(1)'
-        for: 12h
+        for: 5m
         labels:
-          severity: critical
+          severity: info
+          alert_type: deadman_switch
         annotations:
           summary: Prometheus AlertManager E2E dead man switch (экземпляр {{ $labels.instance }})
-          description: "DeadManSwitch Prometheus всегда активен. Это тест для проверки работоспособности Prometheus и Alertmanager.\n  ЗНАЧЕНИЕ = {{ $value }}\n  МЕТКИ = {{ $labels }}"
+          description: "Дела идут отлично."
 
       - alert: PrometheusNotConnectedToAlertmanager
         expr: 'prometheus_notifications_alertmanagers_discovered < 1'
